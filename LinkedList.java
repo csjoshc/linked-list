@@ -14,9 +14,14 @@ public class LinkedList{
         next = null;
       }
   }
+  public static LinkedList prepend(LinkedList list, int data){
+    Node new_node = new Node(data);
+    new_node.next = list.head;
+    list.head = new_node;
+    return list;
+  }
 
   public static LinkedList insert(LinkedList list, int data){
-
     Node new_node = new Node(data);
     new_node.next = null;
 
@@ -33,7 +38,7 @@ public class LinkedList{
     return list;
   }
 
-  public static LinkedList insert_at_k(LinkedList list, int data, int k){
+  public static LinkedList insert_after_k(LinkedList list, int data, int k){
 
     Node new_node = new Node(data);
     new_node.next = null;
@@ -69,7 +74,9 @@ public static void printlist(LinkedList list){
     list = insert(list, 202);
     list = insert(list, 303);
 
-    list = insert_at_k(list, 250, 2);
+    list = insert_after_k(list, 250, 2);
+
+    list = prepend(list, 1);
     printlist(list);
   }
 }
